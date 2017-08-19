@@ -78,8 +78,9 @@
 }
 
 
-- (void) openDetailVCwithLinkOnFullCV:(NSString*) link;
+- (void) openDetailVCwithLinkOnFullCV:(NSString*) link
 {
+    NSLog(@" - (void) openDetailVCwithLinkOnFullCV:(NSString*) link ");
     // Вытащить linkOnCV
     DetailVC* vc = [DetailVC new];
     vc.vmWorkerDetail = [[ViewModel_Worker_Detail alloc] initWithLinkOnFull_CV_Model: link];

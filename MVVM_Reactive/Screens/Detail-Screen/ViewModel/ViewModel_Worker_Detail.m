@@ -35,17 +35,34 @@
 
 - (instancetype)initWithLinkOnFull_CV_Model:(NSString*) link
 {
+    NSLog(@" - (instancetype)initWithLinkOnFull_CV_Model:(NSString*) link ");
     self = [super init];
     if (self) {
         self.linkOnFullCV = link;
+        //[self bindSignals];
+
+        [[self getSignal_DetailWorkerModelFromServer:link] subscribeNext:^(id x) {
+            
+        }];
     }
     return self;
+}
+
+#pragma mark - Helpers
+
+- (void) setModelData:(WorkerFull *)modelData
+{
+    NSLog(@" - (void) setModelData:(WorkerFull *)modelData ");
+    _modelData = modelData;
+    [self bindSignals];
 }
 
 
 #pragma mark - Binding methods
 - (void)bindSignals
 {
+    NSLog(@" - (void)bindSignals. self.modelData = %@",self.modelData);
+    
     RACSignal* workerSignal = [RACSignal return: self.modelData];
     
     self.fullName_Signal = [workerSignal map:^id(WorkerFull* worker) {
@@ -72,46 +89,25 @@
 }
 
 
-
-
-
 #pragma mark - UI Handlers
 
 - (void) goToPscychedelicTVC_Clicked
 {
-    
     [[Router sharedRouter] openPsychedelicDetailTVC:self.modelData];
-}
-
-
-#pragma mark - Helpers
-
-- (void) setModelData:(WorkerFull *)modelData
-{
-    _modelData = modelData;
-    [self setDataToSelfProperty:_modelData];
-}
-
-- (void) setDataToSelfProperty:(WorkerFull*) model
-{
-    self.fullNameTitle =  [NSString stringWithFormat:@"%@ %@", model.firstName, model.lastName];
-    self.postTitle     = model.postInCompany;
-    self.mainTextTitle = model.mainText;
-    self.cvImageURL    = model.photoURL;
 }
 
 
 - (RACSignal*) getSignal_DetailWorkerModelFromServer:(NSString*) link
 {
+    NSLog(@"- (RACSignal*) getSignal_DetailWorkerModelFromServer:(NSString*) link");
     @weakify(self)
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
        
         @strongify(self);
         
         [[[ServerManager sharedManager] getFullInfoByWorkers:link] subscribeNext:^(WorkerFull* worker) {
-            
+            NSLog(@"LLLLLL   [[[ServerManager sharedManager] getFullInfoByWorkers:link]");
              self.modelData = worker;
-            [self setDataToSelfProperty: self.modelData];
             
             if (self.modelData)
                 [subscriber sendNext:@(YES)];
@@ -125,28 +121,5 @@
     }];
 }
 
-#pragma mark - Work with API
-
--(void) getDetailWorkerModelFromServer:(NSString*) link
-                             onSuccess:(void(^)(BOOL successOperation)) success
-                             onFailure:(void(^)(NSError* errorBlock,  NSInteger statusCode)) failure
-{
-    __weak ViewModel_Worker_Detail* weakSelf = self;
-    
-    [[ServerManager sharedManager] getFullInfoByWorkers:link
-                                              onSuccess:^(WorkerFull *worker) {
-                                                  
-                                                  weakSelf.modelData = worker;
-                                                  [weakSelf setDataToSelfProperty:  weakSelf.modelData];
-                                                  
-                                                  if (weakSelf.modelData)
-                                                      success(YES);
-                                                  
-                                              } onFailure:^(NSError *errorBlock, NSInteger statusCode) {
-                                                  
-                                                  NSLog(@"Not found detail cv");
-                                                  failure(errorBlock, statusCode);
-                                              }];
-}
 
 @end

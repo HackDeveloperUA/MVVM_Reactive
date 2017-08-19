@@ -24,8 +24,6 @@
         self.fullNameTitle = [NSString stringWithFormat:@"%@ %@",_model.firstName, _model.lastName];
         self.postTitle     = _model.postInCompany;
         self.cvImageURL    = _model.photoURL;
-        
-        //[self bindSignals];
     }
     return self;
 }

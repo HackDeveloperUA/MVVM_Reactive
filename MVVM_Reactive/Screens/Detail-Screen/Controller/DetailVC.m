@@ -28,7 +28,6 @@
     self = [storyboard instantiateViewControllerWithIdentifier:@"DetailVC"];
     
     if (self) {
-        
     }
     return self;
 }
@@ -38,30 +37,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    //self.fullNameLabel.text       = self.vmWorkerDetail.fullNameTitle;
-    //self.postInCompanyLabel.text  = self.vmWorkerDetail.postTitle;
-    //self.mainTextLabel.text       = self.vmWorkerDetail.mainTextTitle;
-    /*
-    NSURL* cvURL = [NSURL URLWithString: self.vmWorkerDetail.cvImageURL];
-    
-    [self.cvImageView setImageWithURLRequest:[NSURLRequest requestWithURL:cvURL] placeholderImage:[UIImage imageNamed:@"placeholder"] success:^(NSURLRequest* request, NSHTTPURLResponse* response, UIImage* image) {
-        self.cvImageView.image = image;
-    
-    } failure:^(NSURLRequest* request, NSHTTPURLResponse* response, NSError* error) {
-        NSLog(@"setImageWithURLRequest = %@\n Error = %@",response,error);
-    }];
-     */
-    [self bindWithViewModel: _vmWorkerDetail];
-
 }
-
 
 
 #pragma mark - Action
 
 - (IBAction)goToPscychedelicTVC:(id)sender {
-    
     [self.vmWorkerDetail goToPscychedelicTVC_Clicked];
 }
 
@@ -69,83 +50,23 @@
 #pragma mark - Settets
 
 - (void) setVmWorkerDetail:(ViewModel_Worker_Detail *)vmWorkerDetail {
-    
-    
-    /*
-     // NONE REACTIVE CODE
-    [_vmWorkerDetail getDetailWorkerModelFromServer:_vmWorkerDetail.linkOnFullCV
-                                     onSuccess:^(BOOL successOperation) {
-                                         
-                                         if (successOperation)
-                                             [self setupUIwithSelfViewModel];
-                                             
-                                     } onFailure:^(NSError *errorBlock, NSInteger statusCode) {
-                                        // Print error
-                                         NSLog(@"errorBlock = %@",errorBlock);
-                                     }];
-    */
-    /*
-    @weakify(self);
-    [[vmWorkerDetail getSignal_DetailWorkerModelFromServer:vmWorkerDetail.linkOnFullCV]
-     subscribeNext:^(NSNumber* successOperation) {
-         @strongify(self);
 
-         if ([successOperation boolValue])
-             [self setupUIwithSelfViewModel];
-
-     } error:^(NSError *error) {
-        
-         NSLog(@"error = %@",error);
-     }];
+    NSLog(@"- (void) setVmWorkerDetail:(ViewModel_Worker_Detail *)vmWorkerDetail");
     
     _vmWorkerDetail = vmWorkerDetail;
-    */
-    
-    
-    @weakify(self);
-    [[vmWorkerDetail getSignal_DetailWorkerModelFromServer:vmWorkerDetail.linkOnFullCV]
-     subscribeNext:^(NSNumber* successOperation) {
-         @strongify(self);
-         
-         //if ([successOperation boolValue])
-             //[self bindWithViewModel: vmWorkerDetail];
-         
-     } error:^(NSError *error) {
-         
-         NSLog(@"error = %@",error);
-     }];
-    
-    _vmWorkerDetail = vmWorkerDetail;
+    [self bindWithViewModel:vmWorkerDetail];
 }
 
-#pragma mark - UI Setting
-
-- (void) setupUIwithSelfViewModel {
-    /*
-    self.fullNameLabel.text       = self.vmWorkerDetail.fullNameTitle;
-    self.postInCompanyLabel.text  = self.vmWorkerDetail.postTitle;
-    self.mainTextLabel.text       = self.vmWorkerDetail.mainTextTitle;
-    
-
-    NSURL* cvURL = [NSURL URLWithString: self.vmWorkerDetail.cvImageURL];
-    
-    [self.cvImageView setImageWithURLRequest:[NSURLRequest requestWithURL:cvURL] placeholderImage:[UIImage imageNamed:@"placeholder"] success:^(NSURLRequest* request, NSHTTPURLResponse* response, UIImage* image) {
-        self.cvImageView.image = image;
-        
-    } failure:^(NSURLRequest* request, NSHTTPURLResponse* response, NSError* error) {
-        NSLog(@"setImageWithURLRequest = %@\n Error = %@",response,error);
-    }];
-     */
-}
 
 
 - (void)bindWithViewModel:(ViewModel_Worker_Detail *)vm
 {
+    NSLog(@" - (void)bindWithViewModel:(ViewModel_Worker_Detail *)vm ");
     ANDispatchBlockToMainQueue(^{
        
-        RAC(self.fullNameLabel, text) = vm.fullName_Signal;
+        RAC(self.fullNameLabel, text)      = vm.fullName_Signal;
         RAC(self.postInCompanyLabel, text) = vm.postTitle_Signal;
-        RAC(self.mainTextLabel, text) = vm.mainText_Signal;
+        RAC(self.mainTextLabel, text)      = vm.mainText_Signal;
        
         RACSignal* urlImgSignal = vm.cvImageURL_Signal;
         [urlImgSignal subscribeNext:^(NSString* urlString) {
@@ -164,8 +85,8 @@
         }];
 
     });
-    _vmWorkerDetail = vm;
 }
+
 
 // 2 - Вариант - Скачивание с помощью AFNetWorking
 -(RACSignal *)downloadImageSignal:(NSURL *)imageUrl withImage:(UIImageView*) img{
