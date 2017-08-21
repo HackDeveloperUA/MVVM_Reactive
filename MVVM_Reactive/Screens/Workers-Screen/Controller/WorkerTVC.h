@@ -8,19 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-
-// Models
-#import "WorkerShort.h"
-
 // ViewModeles
-#import "ViewModel_Worker_Cell.h"
 #import "ViewModel_ListOfWorkers_TableView.h"
-
-// Cell
-#import "WorkerCell.h"
-
-
-
 
 /*
  RU:

@@ -9,7 +9,7 @@
 
 // Base Router Implemetation
 #import "CoreRouter.h"
-
+#import <NYTPhotoViewer/NYTPhoto.h>
 
 //Controllers
 @class LoginVC;
@@ -25,7 +25,8 @@
 
 //Models
 @class WorkerFull;
-
+@class PhotoModel;
+@class NYTPhoto;
 
 #import "CoreRouterProtocol.h"
 
@@ -43,6 +44,8 @@
 - (void) openWorkersTVC;
 - (void) openDetailVCwithLinkOnFullCV:(NSString*) link;
 - (void) openPsychedelicDetailTVC:(WorkerFull*) workerModel;
+- (void) openNYTPhotovVCwithPhotoModel:(id<NYTPhoto>) photoModel;
+
 
 
 #pragma mark - Routing method & propierties

@@ -79,6 +79,8 @@
     
 }
 
+#pragma mark - download image
+
 // 1 - Вариант - Скачивание с помощью стандартного NSURLConnection
 - (RACSignal*)rac_imageWithURL:(NSURL*)url{
     NSURLRequest *request = [NSURLRequest requestWithURL:url];

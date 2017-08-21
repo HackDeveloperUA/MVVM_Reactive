@@ -8,12 +8,19 @@
 
 #import "ViewModel_ListOfWorkers_TableView.h"
 
+// Model
+#import "WorkerShort.h"
+
+// Router
+#import "Router.h"
+
+// Server API
 #import "ServerManager.h"
 
 @implementation ViewModel_ListOfWorkers_TableView
 
 
-#pragma mark - Inits methods
+#pragma mark - Init methods
 
 - (instancetype)init
 {
@@ -56,28 +63,6 @@
     [[Router sharedRouter] openLoginVC];
 }
 
-#pragma mark - None Reactive API Method
-
-- (void) updateWorkerList:(void(^)(BOOL successOperation)) success
-                onFailure:(void(^)(NSError* errorBlock,  NSObject* errObj)) failure {
-    
-    [self.cellsArray removeAllObjects];
-    
-    [[ServerManager sharedManager] getListAllWorkers:^(NSArray *arrayWorkers) {
-        self.modelArray = [NSMutableArray arrayWithArray:arrayWorkers];
-        
-        for (WorkerShort* worker in arrayWorkers) {
-            [self.cellsArray addObject: [[ViewModel_Worker_Cell alloc] initWithWorker: worker]];
-        }
-        
-        success(YES);
-        
-    } onFailure:^(NSError *errorBlock, NSInteger statusCode) {
-        
-        failure(errorBlock, [NSObject new]);
-    }];
-}
-
 #pragma mark - Reactive API Method
    
 
@@ -105,6 +90,27 @@
 }
 
 
+#pragma mark - None Reactive API Method
+
+- (void) updateWorkerList:(void(^)(BOOL successOperation)) success
+                onFailure:(void(^)(NSError* errorBlock,  NSObject* errObj)) failure {
+    
+    [self.cellsArray removeAllObjects];
+    
+    [[ServerManager sharedManager] getListAllWorkers:^(NSArray *arrayWorkers) {
+        self.modelArray = [NSMutableArray arrayWithArray:arrayWorkers];
+        
+        for (WorkerShort* worker in arrayWorkers) {
+            [self.cellsArray addObject: [[ViewModel_Worker_Cell alloc] initWithWorker: worker]];
+        }
+        
+        success(YES);
+        
+    } onFailure:^(NSError *errorBlock, NSInteger statusCode) {
+        
+        failure(errorBlock, [NSObject new]);
+    }];
+}
 
 @end
 

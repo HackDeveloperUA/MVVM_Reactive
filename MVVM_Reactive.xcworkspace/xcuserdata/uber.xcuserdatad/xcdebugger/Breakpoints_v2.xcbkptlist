@@ -388,59 +388,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MVVM_Reactive/Screens/Login-Screen/ViewModel/ViewModel_AccountsData.m"
-            timestampString = "524614373.579094"
+            timestampString = "524960887.570798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "-signInBtnClicked:andPass:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ViewModel_AccountsData signInBtnClicked:andPass:]"
-                  moduleName = "MVVM_Reactive"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/uber/Documents/Development/MVVM_Reactive/MVVM_Reactive/Screens/Login-Screen/ViewModel/ViewModel_AccountsData.m"
-                  timestampString = "524786677.562439"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "110">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__51-[ViewModel_AccountsData signInBtnClicked:andPass:]_block_invoke"
-                  moduleName = "MVVM_Reactive"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/uber/Documents/Development/MVVM_Reactive/MVVM_Reactive/Screens/Login-Screen/ViewModel/ViewModel_AccountsData.m"
-                  timestampString = "524786677.566567"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "27">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MVVM_Reactive/Screens/Login-Screen/ViewModel/ViewModel_AccountsData.m"
-            timestampString = "524614531.691079"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "-signInBtnClicked:andPass:"
             landmarkType = "7">
          </BreakpointContent>
@@ -448,95 +400,31 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MVVM_Reactive/Screens/Detail-Screen/Controller/DetailVC.m"
-            timestampString = "524785597.031147"
+            filePath = "MVVM_Reactive/Screens/Detail-Screen/ViewModel/ViewModel_Worker_Detail.m"
+            timestampString = "524993327.822395"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "-bindWithViewModel:"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "-initWithLinkOnFull_CV_Model:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MVVM_Reactive/Screens/Detail-Screen/Controller/DetailVC.m"
-            timestampString = "524785337.496227"
+            filePath = "MVVM_Reactive/Screens/Workers-Screen/ViewModel/ViewModel_Worker_Cell.m"
+            timestampString = "524960887.570798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "46"
             endingLineNumber = "46"
-            landmarkName = "-goToPscychedelicTVC:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MVVM_Reactive/Screens/Detail-Screen/ViewModel/ViewModel_Worker_Detail.m"
-            timestampString = "524786434.238699"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
-            landmarkName = "-getSignal_DetailWorkerModelFromServer:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MVVM_Reactive/Screens/Detail-Screen/ViewModel/ViewModel_Worker_Detail.m"
-            timestampString = "524786434.238699"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "-initWithLinkOnFull_CV_Model:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MVVM_Reactive/Screens/Detail-Screen/Controller/DetailVC.m"
-            timestampString = "524786208.99914"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "-setVmWorkerDetail:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MVVM_Reactive/Screens/Detail-Screen/ViewModel/ViewModel_Worker_Detail.m"
-            timestampString = "524786434.238699"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
             landmarkName = "-bindSignals"
             landmarkType = "7">
          </BreakpointContent>
@@ -544,48 +432,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MVVM_Reactive/Screens/Detail-Screen/ViewModel/ViewModel_Worker_Detail.m"
-            timestampString = "524786434.238699"
+            filePath = "MVVM_Reactive/Screens/Workers-Screen/ViewModel/ViewModel_Worker_Cell.m"
+            timestampString = "524960887.570798"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "-setModelData:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MVVM_Reactive/Screens/Detail-Screen/ViewModel/ViewModel_Worker_Detail.m"
-            timestampString = "524786434.238699"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
             landmarkName = "-bindSignals"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MVVM_Reactive/Screens/Detail-Screen/ViewModel/ViewModel_Worker_Detail.m"
-            timestampString = "524786486.303512"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "-initWithLinkOnFull_CV_Model:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -8,11 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-#import "WorkerFull.h"
-
+// Another fraemworks
+#import <NYTPhotoViewer/NYTPhoto.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
+@class WorkerFull;
+@class PhotoModel;
+@class NYTPhoto;
+
 @interface ViewModel_Worker_Detail : NSObject
+
+// Link on model
+@property (nonatomic, strong) WorkerFull *model;
 
 @property (nonatomic, strong) NSString* fullNameTitle;
 @property (nonatomic, strong) NSString* postTitle;
@@ -21,17 +28,12 @@
 @property (nonatomic, strong) NSString* linkOnFullCV;
 
 
+#pragma mark - Signals for normal data
 @property (nonatomic) RACSignal *fullName_Signal;     //NSString
 @property (nonatomic) RACSignal *postTitle_Signal;    //NSString
 @property (nonatomic) RACSignal *cvImageURL_Signal;   //NSString
 @property (nonatomic) RACSignal *mainText_Signal;     //NSString
 @property (nonatomic) RACSignal *linkOnFullCV_Signal; //NSString
-
-// Link on model
-@property (nonatomic, strong) WorkerFull *modelData;
-
-#pragma mark - Binding methods
-- (void)bindSignals;
 
 #pragma mark - Init methods
 
@@ -39,19 +41,17 @@
 - (instancetype)initWithLinkOnFull_CV_Model:(NSString*) link;
 
 
-#pragma mark - None Reactive API Method
-
-- (void) getDetailWorkerModelFromServer:(NSString*) link
-                             onSuccess:(void(^)(BOOL successOperation)) success
-                              onFailure:(void(^)(NSError* errorBlock,  NSInteger statusCode)) failure;
-
-#pragma mark - Reactive API Method
-
-- (RACSignal*) getSignal_DetailWorkerModelFromServer:(NSString*) link;
+#pragma mark - Binding methods
+- (void)bindSignals;
 
 
 #pragma mark - UI handlers
 
 - (void) goToPscychedelicTVC_Clicked;
+- (void) openImgCVonFullScreenWithPhotoModel:(id<NYTPhoto>) model;
+
+#pragma mark - API
+
+#pragma mark - Setters
 
 @end

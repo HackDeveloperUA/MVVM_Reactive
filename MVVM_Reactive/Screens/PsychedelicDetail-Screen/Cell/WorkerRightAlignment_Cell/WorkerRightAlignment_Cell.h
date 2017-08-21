@@ -8,13 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-// ViewModels
-#import "ViewModel_WorkerRightAlignment_Cell.h"
-
-// Fraemworks
-#import <AFNetworking/UIImage+AFNetworking.h>
-#import <AFNetworking/UIImageView+AFNetworking.h>
-
+@class ViewModel_WorkerRightAlignment_Cell;
 
 @interface WorkerRightAlignment_Cell : UITableViewCell
 
@@ -23,6 +17,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *postInCompnayLabel;
 
 @property (weak, nonatomic) ViewModel_WorkerRightAlignment_Cell* vmWorkerCell; // link on cell ViewModel
+
+#pragma mark - Bindings
+- (void)bindWithViewModel:(ViewModel_WorkerRightAlignment_Cell *)vm;
 
 
 @end

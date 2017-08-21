@@ -18,7 +18,6 @@
 @import UIKit;
 
 
-
 @interface Utilites : NSObject
 
 #pragma mark - UIAlertViewController Helpers

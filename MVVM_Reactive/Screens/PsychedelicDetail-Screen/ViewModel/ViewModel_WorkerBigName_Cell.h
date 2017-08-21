@@ -8,20 +8,29 @@
 
 #import "ViewModel_BasedWorker_Cell.h"
 
-// Model
-#import "WorkerFull.h"
+// Reactive
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
+
+@class WorkerFull;
 
 @interface ViewModel_WorkerBigName_Cell : ViewModel_BasedWorker_Cell
+
+@property (nonatomic, strong) WorkerFull* model; // link on model
 
 @property (nonatomic, strong) NSString* fullNameTitle;
 @property (nonatomic, strong) NSString* postInCompany;
 
-@property (nonatomic, strong) WorkerFull* modelWorker; // link on model
+
+
+@property (nonatomic) RACSignal *fullNameSignal;   //NSString
+@property (nonatomic) RACSignal *postTitleSignal;  //NSString
 
 
 #pragma mark - Init methods
-
 - (instancetype)initWithWorker:(WorkerFull*) worker;
+
+#pragma mark - Binding methods
+- (void)bindSignals;
 
 @end

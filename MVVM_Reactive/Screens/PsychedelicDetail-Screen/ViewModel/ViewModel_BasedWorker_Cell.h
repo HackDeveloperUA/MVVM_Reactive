@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 /*
    RU:
       Создана как базовая viewModel. Для viewmodel ячеек:

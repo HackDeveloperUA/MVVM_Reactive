@@ -12,8 +12,7 @@
 @implementation ViewModel_Worker_Cell
 
 
-#pragma mark - Inits methods
-
+#pragma mark - Init methods
 
 - (instancetype)initWithWorker:(WorkerShort*) worker
 {
@@ -28,12 +27,16 @@
     return self;
 }
 
+#pragma mark - Setters
+
 -(void) setModel:(WorkerShort *)model
 {
     _model = model;
     [self bindSignals];
 }
 
+
+#pragma mark - Binding methods
 
 - (void)bindSignals
 {

@@ -286,7 +286,7 @@
                                 </constraints>
                                 <state key="normal" title="Go To PsychedelicTVC"/>
                                 <connections>
-                                    <action selector="goToPscychedelicTVC:" destination="nBX-C5-76z" eventType="touchUpInside" id="pMD-H0-u62"/>
+                                    <action selector="goToPscychedelicTVC:" destination="nBX-C5-76z" eventType="touchUpInside" id="rOh-XU-q4o"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -313,6 +313,7 @@
                     <connections>
                         <outlet property="cvImageView" destination="lHG-Ck-R2X" id="HER-6L-LIg"/>
                         <outlet property="fullNameLabel" destination="wLG-lK-SgF" id="n4M-Qc-VSS"/>
+                        <outlet property="goToPscychedelicTVCbtn" destination="tSJ-jJ-oPU" id="lMT-mU-DXn"/>
                         <outlet property="mainTextLabel" destination="3YI-iq-7UD" id="xWB-1a-1Ev"/>
                         <outlet property="postInCompanyLabel" destination="vHL-L1-dHi" id="l2K-B9-za6"/>
                     </connections>

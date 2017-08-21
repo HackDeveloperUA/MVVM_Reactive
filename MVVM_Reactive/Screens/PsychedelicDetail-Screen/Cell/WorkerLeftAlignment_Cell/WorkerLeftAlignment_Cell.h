@@ -8,22 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-// ViewModels
-#import "ViewModel_WorkerLeftAlignment_Cell.h"
-
-// Fraemworks
-#import <AFNetworking/UIImage+AFNetworking.h>
-#import <AFNetworking/UIImageView+AFNetworking.h>
-
+@class ViewModel_WorkerLeftAlignment_Cell;
 
 @interface WorkerLeftAlignment_Cell : UITableViewCell
-
 
 @property (weak, nonatomic) IBOutlet UIImageView *cvImgView;
 @property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *postInCompanyLabel;
 
-
 @property (weak, nonatomic) ViewModel_WorkerLeftAlignment_Cell* vmWorkerCell; // link on cell ViewModel
+
+#pragma mark - Bindings
+- (void)bindWithViewModel:(ViewModel_WorkerLeftAlignment_Cell *)vm;
 
 @end

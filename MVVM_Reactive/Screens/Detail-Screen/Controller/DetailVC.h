@@ -11,7 +11,6 @@
 // ViewModels
 #import "ViewModel_Worker_Detail.h"
 
-#import <ReactiveCocoa/ReactiveCocoa.h>
 
 /*
  RU:
@@ -27,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *postInCompanyLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mainTextLabel;
+@property (weak, nonatomic) IBOutlet UIButton *goToPscychedelicTVCbtn;
 
 
 @property (strong, nonatomic) ViewModel_Worker_Detail* vmWorkerDetail; // link on controller ViewModel

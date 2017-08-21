@@ -57,7 +57,6 @@
 }
 
 
-
 - (void) viewWillAppear:(BOOL)animated
 {  [super viewWillAppear:animated];     [self addObservers];     }
 
@@ -72,23 +71,21 @@
     // "admin"    : "12345",
     [self animatedHUD:YES];
 
-    RACSignal* signal = [self.vmAccountsData signInBtnClicked:@"admin" andPass:@"12345"];
-    
+   RACSignal* signal = [self.vmAccountsData signInBtnClicked:@"admin" andPass:@"12345"];
     
    [[[signal subscribeOn:[RACScheduler scheduler]] deliverOn:[RACScheduler mainThreadScheduler]] subscribeNext:^(id x) {
-       NSLog(@"x = %@",x);
 
-   } error:^(NSError *error) {
+   } error:^(id error) {
        
-       NSLog(@"error %@",error);
-      
        [self animatedHUD:NO];
-       UIAlertController* alertVC = [Utilites getAlertVCError: error];
-       [self presentViewController:alertVC animated:YES completion:nil];
-       
+
+       if ([error isKindOfClass:[SMErrorAuthentication class]])
+       {
+           UIAlertController* alertVC = [Utilites getAlertVCError: error];
+           [self presentViewController:alertVC animated:YES completion:nil];
+       }
    } completed:^{
        
-       NSLog(@"completed");
        [self animatedHUD:NO];
        [[Router sharedRouter] setIsLoginInUserDefaults: YES];
        [[Router sharedRouter] openWorkersTVC];
@@ -101,7 +98,6 @@
 - (void) animatedHUD:(BOOL) animated {
     
     ANDispatchBlockToMainQueue(^{
-        
         if (animated)
             [self.HUD show:animated];
         else

@@ -8,6 +8,13 @@
 
 #import "WorkerRightAlignment_Cell.h"
 
+// ViewModels
+#import "ViewModel_WorkerRightAlignment_Cell.h"
+
+// Fraemworks
+#import <AFNetworking/UIImage+AFNetworking.h>
+#import <AFNetworking/UIImageView+AFNetworking.h>
+
 @implementation WorkerRightAlignment_Cell
 
 - (void)awakeFromNib {
@@ -21,29 +28,31 @@
     // Configure the view for the selected state
 }
 
-// Setting data to cell`s view
-- (void) setVmWorkerCell:(ViewModel_WorkerRightAlignment_Cell *)myVM
+
+#pragma mark - Bindings
+
+- (void)bindWithViewModel:(ViewModel_WorkerRightAlignment_Cell *)vm
 {
-    _vmWorkerCell = myVM;
-    self.fullNameLabel.text       = myVM.fullNameTitle;
-    self.postInCompnayLabel.text  = myVM.postInCompany;
+    @weakify(self);
+    RACScheduler* mainThreadScheduler = [RACScheduler mainThreadScheduler];
     
+    RAC(self.fullNameLabel, text) = [[vm.fullNameSignal takeUntil:self.rac_prepareForReuseSignal] deliverOn:mainThreadScheduler];
     
-    self.cvImgView.layer.masksToBounds = YES;
+    RAC(self.postInCompnayLabel, text) = [[vm.postTitleSignal takeUntil:self.rac_prepareForReuseSignal] deliverOn:mainThreadScheduler];
     
-    
-    NSURL* cvURL = [NSURL URLWithString: myVM.cvImgURL];
-    
-    [self.cvImgView setImageWithURLRequest:[NSURLRequest requestWithURL:cvURL] placeholderImage:[UIImage imageNamed:@"placeholder"] success:^(NSURLRequest* request, NSHTTPURLResponse* response, UIImage* image) {
-        
-        self.cvImgView.image = image;
-        self.cvImgView.layer.cornerRadius  = CGRectGetWidth(self.cvImgView.frame)/2;
-        
-        
-    } failure:^(NSURLRequest* request, NSHTTPURLResponse* response, NSError* error) {
-        NSLog(@"failure error = %@",error);
+    [RACObserve(self.vmWorkerCell, cvImgURL) subscribeNext:^(id x) {
+        @strongify(self);
+        NSURL* imgURL = [NSURL URLWithString:x];
+        [self.cvImgView setImageWithURL: imgURL];
     }];
-    
 }
+
+- (void) setCvImgView:(UIImageView *)cvImgView
+{
+    _cvImgView = cvImgView;
+    _cvImgView.layer.masksToBounds = YES;
+    _cvImgView.layer.cornerRadius  = CGRectGetWidth(_cvImgView.frame)/2;
+}
+
 
 @end

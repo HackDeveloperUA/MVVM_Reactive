@@ -11,6 +11,7 @@
 // Model
 #import "WorkerShort.h"
 
+// Reactive Cocoa
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface ViewModel_Worker_Cell : NSObject
@@ -27,7 +28,7 @@
 @property (nonatomic) RACSignal *cvImageURLSignal; //NSString
 
 
-#pragma mark - Inits methods
+#pragma mark - Init methods
 - (instancetype)initWithWorker:(WorkerShort*) worker;
 
 #pragma mark - Binding methods

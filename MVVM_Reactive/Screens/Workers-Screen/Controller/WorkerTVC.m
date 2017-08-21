@@ -8,8 +8,17 @@
 
 #import "WorkerTVC.h"
 
-#import "Router.h"
 
+// ViewModels
+#import "ViewModel_Worker_Cell.h"
+
+// Models
+#import "WorkerShort.h"
+
+// Cell
+#import "WorkerCell.h"
+
+// Another fraemworks
 #import <ANHelperFunctions/ANHelperFunctions.h>
 
 @interface WorkerTVC ()
@@ -103,7 +112,6 @@
 #pragma mark - Actions
 
 - (void)logoutAction {
-    // Call to ViewModel
     [self.vmListOfWorkers_TableView logoutBtnClicked];
 }
 

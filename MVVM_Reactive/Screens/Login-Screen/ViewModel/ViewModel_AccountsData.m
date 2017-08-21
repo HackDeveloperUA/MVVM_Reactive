@@ -17,11 +17,8 @@
 - (RACSignal*) signInBtnClicked:(NSString*)login
                         andPass:(NSString*) pass
 {
-
-    
     return [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
        
-        
         [[[ServerManager sharedManager] getAccountsData]
            subscribeNext:^(NSDictionary* response){
               
@@ -32,9 +29,7 @@
                                                                             withSubtitle:@"Неправильный логин или пароль"
                                                                              withMessage:@""];
                [subscriber sendError:err];
-           }
-           
-               
+                  }
          }];
         
         return nil;

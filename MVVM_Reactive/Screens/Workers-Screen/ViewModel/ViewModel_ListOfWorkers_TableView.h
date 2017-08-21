@@ -11,14 +11,9 @@
 // Cell VM
 #import "ViewModel_Worker_Cell.h"
 
-// Model
-#import "WorkerShort.h"
-
-// Router
-#import "Router.h"
-
 // ReactiveCocoa
 #import <ReactiveCocoa/ReactiveCocoa.h>
+
 
 @interface ViewModel_ListOfWorkers_TableView : NSObject
 
@@ -37,14 +32,14 @@
 - (void) logoutBtnClicked;
 
 
+#pragma mark - Reactive API Method
+
+- (RACSignal*) getSignalUpdateWorkerList;
+
+
 #pragma mark - None Reactive API Method
 
 - (void) updateWorkerList:(void(^)(BOOL successOperation)) success
                 onFailure:(void(^)(NSError* errorBlock,  NSObject* errObj)) failure;
-
-
-#pragma mark - Reactive API Method
-
-- (RACSignal*) getSignalUpdateWorkerList;
 
 @end

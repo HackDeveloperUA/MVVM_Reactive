@@ -8,19 +8,28 @@
 
 #import "ViewModel_BasedWorker_Cell.h"
 
-// Model
-#import "WorkerFull.h"
+// Reactive
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
+@class WorkerFull;
 
 @interface ViewModel_WorkerLeftAlignment_Cell : ViewModel_BasedWorker_Cell
 
-@property (nonatomic, strong) NSString* fullNameTitle;
-@property (nonatomic, strong) NSString* cvImgURL;
-@property (nonatomic, strong) NSString* postInCompany;
+@property (nonatomic, strong) WorkerFull* model; // link on model
 
-@property (nonatomic, strong) WorkerFull* modelWorker; // link on model
+@property (nonatomic, strong) NSString* fullNameTitle;
+@property (nonatomic, strong) NSString* postInCompany;
+@property (nonatomic, strong) NSString* cvImgURL;
+
+
+@property (nonatomic) RACSignal *fullNameSignal;   //NSString
+@property (nonatomic) RACSignal *postTitleSignal;  //NSString
+@property (nonatomic) RACSignal *cvImageURLSignal; //NSString
 
 #pragma mark - Init methods
 - (instancetype)initWithWorker:(WorkerFull*) worker;
+
+#pragma mark - Binding methods
+- (void)bindSignals;
 
 @end

@@ -8,25 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-
-// Cell VM
-#import "ViewModel_BasedWorker_Cell.h"
-#import "ViewModel_WorkerBigName_Cell.h"
-#import "ViewModel_WorkerRightAlignment_Cell.h"
-#import "ViewModel_WorkerLeftAlignment_Cell.h"
-
-// Cell
-#import "WorkerLeftAlignment_Cell.h"
-#import "WorkerRightAlignment_Cell.h"
-#import "WorkerBigName_Cell.h"
+// Reactive
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 
-// Model
-#import "WorkerFull.h"
-
-// Router
-#import "Router.h"
-
+@class WorkerFull;
+@class ViewModel_BasedWorker_Cell;
 
 @interface ViewModel_ListOfPsychedelicWorkers_TableView : NSObject
 
@@ -35,27 +22,25 @@
 
 
 #pragma mark - Init methods
-
 - (instancetype)initWithWorker:(WorkerFull*) workerModel;
 
 
-#pragma mark - Work with API
-
-- (void) generateVMforCells:(void(^)(BOOL successOperation)) success
-                  onFailure:(void(^)(NSError* errorBlock)) failure;
-
-
 #pragma mark - Methods for TableView work
-
 - (ViewModel_BasedWorker_Cell*) cellViewModel:(NSInteger) index;
 - (NSInteger) countWorkers;
 
 
+#pragma mark - Reactive API Method
+- (RACSignal*) getSignal_generateVMforCells;
+
+
+#pragma mark - None Reactive API Method
+- (void) generateVMforCells:(void(^)(BOOL successOperation)) success
+                  onFailure:(void(^)(NSError* errorBlock)) failure;
+
+
 #pragma mark - UI Handlers
-
 - (void) didSelectAtRowFromTable:(NSIndexPath*) indexPath;
-
-
 
 @end
 

@@ -8,17 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-// model
-#import "WorkerFull.h"
-
-// ViewModel - Cells
-#import "ViewModel_BasedWorker_Cell.h"
-
-// ViewModel - Controller
-#import "ViewModel_ListOfPsychedelicWorkers_TableView.h"
-
-
-
 /*
  RU:
  Экран на котором показано, как MVVM работает с ячейками разных типо и разных ViewModel.
@@ -27,8 +16,9 @@
  A screen that shows you how MVVM works with cells of different types and different ViewModel.
  */
 
-
 @class Router;
+@class ViewModel_ListOfPsychedelicWorkers_TableView;
+
 
 @interface PsychedelicDetailTVC : UITableViewController
 

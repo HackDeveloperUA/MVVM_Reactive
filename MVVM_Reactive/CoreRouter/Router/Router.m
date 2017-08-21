@@ -15,8 +15,9 @@
  #import "LoginVC.h"
  #import "WorkerTVC.h"
  #import "DetailVC.h"
-#import "PsychedelicDetailTVC.h"
-
+ #import "PsychedelicDetailTVC.h"
+ // From custom library
+ #import <NYTPhotoViewer/NYTPhotosViewController.h>
 
  // ViewModels
  #import "ViewModel_AccountsData.h"
@@ -26,6 +27,7 @@
 
 // Model
 #import "WorkerFull.h"
+#import "PhotoModel.h"
 
 @implementation Router
 
@@ -80,8 +82,6 @@
 
 - (void) openDetailVCwithLinkOnFullCV:(NSString*) link
 {
-    NSLog(@" - (void) openDetailVCwithLinkOnFullCV:(NSString*) link ");
-    // Вытащить linkOnCV
     DetailVC* vc = [DetailVC new];
     vc.vmWorkerDetail = [[ViewModel_Worker_Detail alloc] initWithLinkOnFull_CV_Model: link];
     
@@ -100,6 +100,13 @@
     if ([self haveControllerForMenuInMemory]){
         [Router pushTo:vc inNavContr:self.mainNavContr];
     }
+}
+
+
+- (void) openNYTPhotovVCwithPhotoModel:(id<NYTPhoto>) photoModel
+{
+    NYTPhotosViewController* photoVC = [[NYTPhotosViewController alloc] initWithPhotos:@[photoModel]];
+    [Router present:photoVC animated:YES];
 }
 
 #pragma mark - NSUserDefault

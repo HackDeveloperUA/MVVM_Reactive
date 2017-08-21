@@ -26,9 +26,3 @@
 @end
 
 
-/*
-- (void) signInBtnClicked:(NSString*)login
-andPass:(NSString*) pass
-andHandler:(void(^)(BOOL successOperation)) success
-onFailure:(void(^)(NSError* errorBlock, SMErrorAuthentication* errObjc)) failure;
-*/

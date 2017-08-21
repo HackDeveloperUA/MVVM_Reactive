@@ -19,7 +19,6 @@
 @property (strong, nonatomic) AFHTTPSessionManager *manager;
 @property (strong, nonatomic) dispatch_queue_t requestQueue;
 
-
 @end
 
 
@@ -136,7 +135,6 @@
 
 
 // ----------  NON REACTIVE METHODS ---------  //
-
 
 
 

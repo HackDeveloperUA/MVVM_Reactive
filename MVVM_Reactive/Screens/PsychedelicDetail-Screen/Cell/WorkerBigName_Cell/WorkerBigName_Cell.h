@@ -8,13 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-// ViewModels
-#import "ViewModel_WorkerBigName_Cell.h"
 
-// Fraemworks
-#import <AFNetworking/UIImage+AFNetworking.h>
-#import <AFNetworking/UIImageView+AFNetworking.h>
-
+@class ViewModel_WorkerBigName_Cell;
 
 @interface WorkerBigName_Cell : UITableViewCell
 
@@ -23,6 +18,8 @@
 
 @property (weak, nonatomic) ViewModel_WorkerBigName_Cell* vmWorkerCell; // link on cell ViewModel
 
+#pragma mark - Bindings
+- (void)bindWithViewModel:(ViewModel_WorkerBigName_Cell *)vm;
 
 
 @end

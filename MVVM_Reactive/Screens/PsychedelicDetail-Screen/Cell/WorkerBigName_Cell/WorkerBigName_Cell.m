@@ -8,6 +8,13 @@
 
 #import "WorkerBigName_Cell.h"
 
+// ViewModels
+#import "ViewModel_WorkerBigName_Cell.h"
+
+// Fraemworks
+#import <AFNetworking/UIImage+AFNetworking.h>
+#import <AFNetworking/UIImageView+AFNetworking.h>
+
 @implementation WorkerBigName_Cell
 
 - (void)awakeFromNib {
@@ -21,13 +28,16 @@
     // Configure the view for the selected state
 }
 
-// Setting data to cell`s view
-- (void) setVmWorkerCell:(ViewModel_WorkerBigName_Cell *)myVM
+#pragma mark - Bindings
+
+- (void)bindWithViewModel:(ViewModel_WorkerBigName_Cell *)vm
 {
-    _vmWorkerCell = myVM;
+    RACScheduler* mainThreadScheduler = [RACScheduler mainThreadScheduler];
     
-    self.fullNameLabel.text      = myVM.fullNameTitle;
-    self.postInCompnayLabel.text = myVM.postInCompany;
+    RAC(self.fullNameLabel, text) = [[vm.fullNameSignal takeUntil:self.rac_prepareForReuseSignal] deliverOn:mainThreadScheduler];
+    
+    RAC(self.postInCompnayLabel, text) = [[vm.postTitleSignal takeUntil:self.rac_prepareForReuseSignal] deliverOn:mainThreadScheduler];
+
 }
 
 @end
