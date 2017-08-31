@@ -11,4 +11,5 @@ target 'MVVM_Reactive' do
     pod 'ANHelperFunctions'
     pod 'MBProgressHUD', '~> 0.9.2'
     pod 'NYTPhotoViewer'
+    pod 'Typhoon'
 end

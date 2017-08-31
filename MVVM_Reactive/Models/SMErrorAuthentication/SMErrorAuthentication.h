@@ -17,6 +17,6 @@
  In the case of specific errors in the authentication process.
  */
 
-@interface SMErrorAuthentication : SMError <SMErrorAunteficationProtocol>
+@interface SMErrorAuthentication : SMError <Protocol_SMErrorAuntefication>
 
 @end

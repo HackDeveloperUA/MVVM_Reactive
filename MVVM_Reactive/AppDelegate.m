@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 
 // Router
-#import "Router.h"
+#import "HDRouter.h"
 
 @interface AppDelegate ()
 
@@ -30,7 +30,7 @@ RU: Внимание ! Это тестовая версия паттерна, н
     
 
  
-    [[Router sharedRouter] openApplication];
+    [[HDRouter sharedRouter] openApplication];
     
     return YES;
 }

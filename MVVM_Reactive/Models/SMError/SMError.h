@@ -16,7 +16,7 @@
  The object which by default we will transfer to Utilites to getting UIAlertViewController
 */
 
-@interface SMError : NSError <SMErrorProtocol>
+@interface SMError : NSError <Protocol_SMError>
 
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *subtitle;
